@@ -9,7 +9,7 @@ from flask import Flask, request, jsonify  # For creating the Flask API
 superkart_api = Flask("SuperKart Model Predictor (RRA)") #Complete the code to define the name of the app
 
 # Load the trained churn prediction model
-model = joblib.load("SuperKart_prediction_model_v1_0.joblib") #Complete the code to define the location of the serialized model
+model = joblib.load("superkartwap.joblib") #Corrected: Changed model filename to 'superkartwap.joblib'
 
 # Define a route for the home page
 @superkart_api.get('/')
@@ -17,7 +17,7 @@ def home():
     return "Welcom to the SuperKart Price Prediction API (RRA)" #Complete the code to define a welcome message
 
 # Define an endpoint to predict churn for a single customer
-@superkart_api.post('/v1/predict')
+@superkart_api.post('/v1/predict') # Corrected: Endpoint path to '/v1/predict'
 def predict_sales():
     # Get JSON data from the request
     data = request.get_json()
